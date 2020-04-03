@@ -10,6 +10,7 @@ import { LoginComponent } from './views/login/login.component';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { RegisterComponent } from './views/register/register.component';
 import { ManagerComponent } from './manager/manager.component';
+import { TemplateTableComponent } from './control/template-table/template-table.component';
 // import { DashboardComponent } from './main-app/dashboard/dashboard.component';
 // import { MainAppComponent } from './main-app/main-app.component';
 

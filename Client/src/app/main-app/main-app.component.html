@@ -1,5 +1,5 @@
 <mat-drawer-container class="example-container">
-    <mat-drawer class="side-nav pl-2 pr-2" #drawer [mode]="'side'" opened="true">
+    <mat-drawer class="side-nav pl-2 pr-2" #drawer [(mode)]="mode" [(opened)]="isOpen">
         <div>
             <mat-list>
                 <mat-list-item class="d-flex justify-content-center" >

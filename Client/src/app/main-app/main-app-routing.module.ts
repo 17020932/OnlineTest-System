@@ -8,8 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HistoryTestComponent } from './history-test/history-test.component';
 import { PersonalChannelComponent } from './personal-channel/personal-channel.component';
-import {HightlightchanelComponent} from "./hightlightchanel/hightlightchanel.component";
-
+import {HightlightchanelComponent} from './hightlightchanel/hightlightchanel.component';
 
 const routes: Routes = [
   {

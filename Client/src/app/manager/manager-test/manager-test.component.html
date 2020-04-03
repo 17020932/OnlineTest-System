@@ -1,1 +1,30 @@
-<p>manager-test works!</p>
+<div class="manager-test-wrap">
+    <div class="d-flex flex-column flex-shrink-0 mb-2">
+        <div class="top mb-4 mt-4 align-items-center d-flex flex-wrap justify-content-between">
+            <div class="title text-bold">Quản lý đề thi</div>
+            <button mat-flat-button color="primary">
+                <div class="align-items-center d-flex ">
+                    <mat-icon class="mr-2">note_add</mat-icon>
+                    <div>Thêm đề thi</div>
+                </div>
+            </button>
+        </div>
+        <div class="search-wrap d-flex justify-content-center align-items-center">
+            <input type="text" placeholder="Nhập từ khóa tìm kiếm">
+            <button mat-icon-button>
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <mat-tab-group class="d-flex flex-column">
+        <mat-tab label="Đã xuất bản">
+            <template-table>
+            </template-table>
+        </mat-tab>
+        <mat-tab label="Riêng tư">
+            <template-table>
+            </template-table>
+        </mat-tab>
+    </mat-tab-group>
+</div>

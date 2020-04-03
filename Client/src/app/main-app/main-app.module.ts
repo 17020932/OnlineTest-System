@@ -17,7 +17,6 @@ import { TestPageComponent } from './test-page/test-page.component';
 import { HightlightchanelComponent } from './hightlightchanel/hightlightchanel.component';
 
 
-
 @NgModule({
   declarations: [
     MainAppComponent,
@@ -29,7 +28,7 @@ import { HightlightchanelComponent } from './hightlightchanel/hightlightchanel.c
     HistoryTestComponent,
     PersonalChannelComponent,
     HightlightchanelComponent,
-    TestPageComponent,
+    TestPageComponent
   ],
   imports: [
     CustomMaterialModule,

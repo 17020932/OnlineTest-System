@@ -1,0 +1,38 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container *ngFor="let column of Columns">
+        <!-- selectbox -->
+        <ng-container matColumnDef="{{column.dataIndex}}" *ngIf="column.type === 2">
+          <th mat-header-cell *matHeaderCellDef> <mat-checkbox [(ngModel)]="checkAll"></mat-checkbox> </th>
+          <td mat-cell *matCellDef="let element"> 
+              <mat-checkbox [checked]="column.selected || checkAll"></mat-checkbox>
+          </td>
+        </ng-container>
+
+        <ng-container *ngIf="column.type === 3">
+          <ng-container matColumnDef="{{column.dataIndex}}">
+            <th mat-header-cell *matHeaderCellDef> {{column.name}} </th>
+              <td mat-cell *matCellDef="let element"> {{element[column.dataIndex] | date: 'dd/MM/yyyy'}} </td>
+          </ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="column.type !== 2 && column.type !== 3">
+          <ng-container matColumnDef="{{column.dataIndex}}">
+            <th mat-header-cell *matHeaderCellDef> {{column.name}} </th>
+            <ng-container *ngIf="column.type === 4; else elseTemplate">
+              <td mat-cell *matCellDef="let element"> {{element[column.dataIndex] == 0 ? 'open' : 'close'}} </td>
+            </ng-container>
+            <ng-template #elseTemplate>
+              <td mat-cell *matCellDef="let element"> {{element[column.dataIndex]}} </td>
+            </ng-template>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>

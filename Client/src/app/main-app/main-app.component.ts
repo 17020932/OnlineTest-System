@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-app.component.scss']
 })
 export class MainAppComponent implements OnInit {
+  isOpen: boolean = true;
+  mode: string = 'side';
 
   listUrl: string[] = [
     '/main/dashboard',
@@ -24,6 +26,7 @@ export class MainAppComponent implements OnInit {
 
   ngOnInit() {
     const me = this;
+    me.toggleSideBar();
     this.selectedPage = this.listUrl.indexOf(me.route.url) + 1;
   }
 
@@ -32,6 +35,20 @@ export class MainAppComponent implements OnInit {
     const me = this;
     me.selectedPage = page;
     me.route.navigate([me.listUrl[page - 1]]);
+  }
+
+  //
+  @HostListener('window:resize', ['$event'])
+  toggleSideBar() {
+    const limitWidth = 1200;
+    const currentWidth = window.innerWidth;
+    if (currentWidth < limitWidth){
+      this.mode = 'mode';
+      this.isOpen = false;
+    } else {
+      this.mode = 'side';
+      this.isOpen = true;
+    }
   }
 
 }

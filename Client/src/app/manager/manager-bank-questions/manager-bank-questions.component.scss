@@ -1,0 +1,33 @@
+:host{
+    .manager-test-wrap{
+        padding: 0 30px;
+    }
+    .title{
+        font-size: 20px;
+    }
+    .search-wrap {
+        //margin: 16px;
+        border-radius: 25px;
+        background-color: #dac2ff;
+        height: 40px;
+        padding: 0 16px;
+        width: 100%;
+
+        input {
+          background-color: #dac2ff;
+          border: none;
+          height: 100%;
+          width: calc(100% - 16px);
+
+          &:focus {
+            border: none;
+            outline: none;
+
+            .search-wrap {
+              border: 1px solid rgb(0, 163, 238);
+            }
+          }
+        }
+
+      }
+}

@@ -1,3 +1,4 @@
+import { TemplateTableModule } from './../control/template-table/template-table.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ManagerTestComponent } from './manager-test/manager-test.component';
@@ -23,7 +24,8 @@ import { ManagerComponent } from './manager.component';
     CustomMaterialModule,
     FormsModule,
     CommonModule,
-    ManagerRoutingModule
+    ManagerRoutingModule,
+    TemplateTableModule
   ],
   providers: [],
   bootstrap: [ManagerComponent]
