@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -9,7 +10,10 @@ export class TestComponent implements OnInit {
 
   @Input()
   test: any;
-  constructor() { }
+
+  // @Output()
+  // continue: EventEmitter<any> = new EventEmitter();
+  constructor(private route: Router) { }
 
   ngOnInit() {
   }

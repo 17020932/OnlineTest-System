@@ -1,3 +1,5 @@
+import { TestPageComponent } from './test-page/test-page.component';
+import { TestComponent } from './dashboard/use-control/test/test.component';
 import { SearchComponent } from './search/search.component';
 import { MainAppComponent } from './main-app.component';
 import { NgModule, Component } from '@angular/core';
@@ -40,6 +42,10 @@ const routes: Routes = [
       {
         path: 'channel',
         component: DashboardComponent
+      },
+      {
+        path: 'test/:id',
+        component: TestPageComponent
       },
       // duong dan khac thi mac dinh ve home
       {

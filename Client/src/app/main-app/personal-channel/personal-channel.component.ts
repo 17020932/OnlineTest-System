@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class PersonalChannelComponent implements OnInit {
 
   hasChannel: boolean = false;
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit() {
+    if(this.hasChannel){
+      this.router.navigate(['/manager']);
+    }
   }
 
 }

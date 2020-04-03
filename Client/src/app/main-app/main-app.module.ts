@@ -13,6 +13,7 @@ import { TestComponent } from './dashboard/use-control/test/test.component';
 import { SearchComponent } from './search/search.component';
 import { HistoryTestComponent } from './history-test/history-test.component';
 import { PersonalChannelComponent } from './personal-channel/personal-channel.component';
+import { TestPageComponent } from './test-page/test-page.component';
 
 
 
@@ -25,7 +26,8 @@ import { PersonalChannelComponent } from './personal-channel/personal-channel.co
     TestComponent,
     SearchComponent,
     HistoryTestComponent,
-    PersonalChannelComponent
+    PersonalChannelComponent,
+    TestPageComponent
   ],
   imports: [
     CustomMaterialModule,
