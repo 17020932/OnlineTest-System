@@ -14,6 +14,7 @@ import { SearchComponent } from './search/search.component';
 import { HistoryTestComponent } from './history-test/history-test.component';
 import { PersonalChannelComponent } from './personal-channel/personal-channel.component';
 import { TestPageComponent } from './test-page/test-page.component';
+import { HightlightchanelComponent } from './hightlightchanel/hightlightchanel.component';
 
 
 
@@ -27,7 +28,8 @@ import { TestPageComponent } from './test-page/test-page.component';
     SearchComponent,
     HistoryTestComponent,
     PersonalChannelComponent,
-    TestPageComponent
+    HightlightchanelComponent,
+    TestPageComponent,
   ],
   imports: [
     CustomMaterialModule,
