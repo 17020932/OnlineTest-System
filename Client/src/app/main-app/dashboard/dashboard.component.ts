@@ -52,36 +52,44 @@ export class DashboardComponent implements OnInit {
 
   ];
 
-  listChannel: Array <any> = [
+  listChannel: Array<any> = [
     {
+      Id: 1,
       Name: 'Hóa học 24h',
       AmountFollow: 11245
     },
     {
+      Id: 1,
       Name: 'Hóa học 24h',
       AmountFollow: 11245
     },
     {
+      Id: 1,
       Name: 'Hóa học 24h',
       AmountFollow: 11245
     },
     {
+      Id: 1,
       Name: 'Hóa học 24h',
       AmountFollow: 11245
     },
     {
+      Id: 1,
       Name: 'Hóa học 24h',
       AmountFollow: 11245
     },
     {
+      Id: 1,
       Name: 'Hóa học 24h',
       AmountFollow: 11245
     },
     {
+      Id: 1,
       Name: 'Hóa học 24h',
       AmountFollow: 11245
     },
     {
+      Id: 1,
       Name: 'Hóa học 24h',
       AmountFollow: 11245
     }
@@ -160,4 +168,13 @@ export class DashboardComponent implements OnInit {
       this.route.navigate([url]);
     }
   }
+
+  // đi vào kênh cá nhân
+  goToChannelById(channel) {
+    if (channel && channel.Id) {
+      const url = 'main/channel/' + channel.Id;
+      this.route.navigate([url]);
+    }
+  }
+
 }

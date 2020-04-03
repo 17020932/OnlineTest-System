@@ -40,7 +40,7 @@ const routes: Routes = [
         component: DashboardComponent
       },
       {
-        path: 'channel',
+        path: 'channel/:id',
         component: HightlightchanelComponent
       },
       {

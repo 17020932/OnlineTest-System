@@ -1,68 +1,63 @@
-
-<div class="container-fluid">
-  <div class="col-12 head-chanel">
-    <mat-card>
-      <img mat-card-image style="height: 300px" src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-           alt="Photo of a Shiba Inu">
-    </mat-card>
-  </div>
-  <div class="title-chanel row">
-    <div class="col-md-8">
-      <div class="row">
-        <div class="avatar mb-3 d-flex justify-content-center align-items-center">
-          <a><button mat-fab style="height: 80px; width: 80px">Basic</button></a>
-        </div>
-        <div class="title col-md-9">
-          <h3>Kênh gì đó</h3>
-          <p>31 like</p>
-        </div>
+<div class="pl-1 pr-1">
+  <div class="brand-img mb-2"></div>
+  <div class="mb-3  pl-5 pr-5 title-chanel d-flex flex-wrap align-items-center justify-content-between">
+    <div class="d-flex flex-wrap align-items-center">
+      <div class="avatar">
+      </div>
+      <div class="ml-2">
+        <div class="text-bold">Luyện Thi Hóa Học</div>
+        <div class="small-text">100 lượt yêu thích</div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="container">
-        <div class="like-wrap mb-3 d-flex justify-content-center align-items-center">
-          <button type="button" class="btn btn-outline-primary">LIKE</button>
-        </div>
-      </div>
-    </div>
+    <button mat-stroked-button color="primary" style="width: 200px; height: 36px;">Like</button>
   </div>
-  <div class="chanel-tab row">
-    <div class="col-md-8">
+  <div class="chanel-tab d-flex flex-wrap">
+    <div class="col-md-9">
       <mat-tab-group animationDuration="0ms">
         <mat-tab label="Đề thi Online">
-          <div class="content-tab col-md-12">
+          <div class="content-tab">
             <h4> Danh sách đề thi</h4>
-            <div class="d-flex flex-wrap mb-2" style="height: 703px; overflow: hidden;">
-              <app-test class="col-md-4 col-sm-6" *ngFor="let test of listTest" [test]="test">
+            <div class="d-flex flex-wrap mb-2">
+              <app-test (click)="goToTestById(test)" class="col-xl-4 col-md-6 col-sm-6" *ngFor="let test of listTest" [test]="test">
               </app-test>
             </div>
           </div>
+          <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+          </mat-paginator>
         </mat-tab>
-        <mat-tab label="Đề thi Offline"></mat-tab>
+        <mat-tab label="Đề thi Offline">
+          <div class="content-tab">
+            <h4> Danh sách đề thi</h4>
+            <div class="d-flex flex-wrap mb-2">
+              <app-test (click)="goToTestById(test)" class="col-xl-4 col-md-6 col-sm-6" *ngFor="let test of listTest" [test]="test">
+              </app-test>
+            </div>
+          </div>
+          <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+          </mat-paginator>
+        </mat-tab>
         <mat-tab label="Thông tin"></mat-tab>
       </mat-tab-group>
 
     </div>
-    <div class="col-md-4">
-      <div class="search-wrap mb-3 d-flex justify-content-center align-items-center">
-        <input type="text" placeholder="Nhập từ khóa tìm kiếm">
-        <button mat-icon-button>
-          <mat-icon>search</mat-icon>
-        </button>
+    <div class="col-md-3">
+      <div style="margin-top: 90px;">
+        <div class="title mb-3 text-bold">
+          Tìm kiếm đề thi
+        </div>
+        <div class="search-wrap mb-3 d-flex justify-content-center align-items-center">
+          <input type="text" placeholder="Nhập từ khóa tìm kiếm">
+          <button mat-icon-button>
+            <mat-icon>search</mat-icon>
+          </button>
+        </div>
       </div>
-      <div class="title">
-        <h4>Lọc theo chủ đề</h4>
+      <div class="text-bold">
+        Lọc theo chủ đề
       </div>
-      <div class="d-flex flex-wrap" >
+      <div class="d-flex flex-wrap">
         <app-item-tag *ngFor="let title of listTitles" [Item]="title" class="col-xl-6 col-md-12"></app-item-tag>
       </div>
     </div>
   </div>
-  <div class="footer-chanel">
-    <div class="col-12">dsaas
-    </div>
-  </div>
-  <div></div>
 </div>
-
-
