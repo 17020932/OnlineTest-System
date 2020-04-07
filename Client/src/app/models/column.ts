@@ -13,7 +13,5 @@ export class column {
     //
     dataIndex: string;
 
-    //
-    selected?: boolean;
 
 }

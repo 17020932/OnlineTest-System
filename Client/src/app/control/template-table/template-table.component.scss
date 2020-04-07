@@ -1,3 +1,11 @@
 table {
     width: 100%;
   }
+.textname{
+  cursor: pointer;
+  
+  color: #4a2f72;
+  &:hover{
+    text-decoration: underline;
+  }
+}

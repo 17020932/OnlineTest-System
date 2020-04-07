@@ -1,0 +1,9 @@
+:host{
+    .test-detail-wrap{
+        
+    }
+    .test-detail-content{
+         height: calc(90vh - 90px);
+         overflow: auto;
+    }
+}

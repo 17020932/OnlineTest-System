@@ -1,7 +1,8 @@
+import { element } from 'protractor';
 import { EnumDataType } from './../../common/enum-common';
 import { column } from './../../models/column';
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
+import { MatPaginator, MatTableDataSource, MatCheckbox } from '@angular/material';
 import { timer } from 'rxjs';
 
 @Component({
@@ -9,102 +10,35 @@ import { timer } from 'rxjs';
   templateUrl: './template-table.component.html',
   styleUrls: ['./template-table.component.scss']
 })
-export class TemplateTableComponent implements OnInit {
+export class TemplateTableComponent implements OnInit, AfterViewInit {
 
   constructor() { }
+  @Input()
+  totalPage: any;
 
   @Input()
-  displayedColumns: string[] = ['select', 'name', 'datePublic', 'time', 'status', 'amount'];
+  displayedColumns: string[] = [];
 
   @Input()
-  dataSource = new MatTableDataSource<any>(ELEMENT_DATA);
+  dataSource = new MatTableDataSource<any>();
 
   @Input()
-  Columns: Array<column> = [
-    {
-      type: EnumDataType.selectBox,
-      name: '',
-      dataIndex: 'select',
-      selected: false
-    },
-    {
-      type: EnumDataType.default,
-      name: 'tên đề thi',
-      dataIndex: 'name',
-      selected: false
-    },
-    {
-      type: EnumDataType.date,
-      name: 'ngày xuất bản',
-      dataIndex: 'datePublic',
-      selected: false
-    },
-    {
-      type: EnumDataType.number,
-      name: 'thời gian (phút)',
-      dataIndex: 'time',
-      selected: false
-    },
-    {
-      type: EnumDataType.status,
-      name: 'trạng thái',
-      dataIndex: 'status',
-      selected: false
-    },
-    {
-      type: EnumDataType.number,
-      name: 'Số lượt thi',
-      dataIndex: 'amount',
-      selected: false
-    }
-  ];
+  Columns: Array<column> = [];
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  // tslint:disable-next-line: no-output-native
+  @Output()
+  open: EventEmitter<any> = new EventEmitter();
 
-  checkAll: boolean = false;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }
 
-  // check all row
-  toggleCheckAll(){
-    const me = this;
-    me.checkAll = !me.checkAll;
-    me.Columns.map(col => col.selected = me.checkAll);
+  ngAfterViewInit(): void {
+  }
+
+  openBottomsheet(element) {
+    this.open.emit(element);
   }
 
 }
-
-
-export interface PeriodicElement {
-  name: string;
-  select: number;
-  datePublic: Date;
-  time: any;
-  status: number;
-  amount: number;
-}
-const date = new Date();
-// const time = new TimeRanges();
-const ELEMENT_DATA: PeriodicElement[] = [
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-  {select: 1, name: 'Hydrogen', datePublic: date, time: 90, status: 1, amount: 100},
-];

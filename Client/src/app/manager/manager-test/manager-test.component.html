@@ -19,11 +19,11 @@
 
     <mat-tab-group class="d-flex flex-column">
         <mat-tab label="Đã xuất bản">
-            <template-table>
+            <template-table [totalPage]="totalPage" [displayedColumns]="displayedColumns" [dataSource]="dataSource" [Columns]="Columns" (open)="viewTest($event)">
             </template-table>
         </mat-tab>
         <mat-tab label="Riêng tư">
-            <template-table>
+            <template-table [totalPage]="totalPage" [displayedColumns]="displayedColumns" [dataSource]="dataSource" [Columns]="Columns">
             </template-table>
         </mat-tab>
     </mat-tab-group>
