@@ -1,9 +1,17 @@
-:host{
-    .test-detail-wrap{
-        
-    }
-    .test-detail-content{
-         height: calc(90vh - 90px);
-         overflow: auto;
-    }
+:host {
+  .test-detail-wrap {}
+
+  .test-detail-content {
+    height: calc(95vh - 100px);
+    overflow: auto;
+  }
+  .material-icons {
+    font-size: 16px;
+  }
+  .mat-icon {
+    height: 16px;
+    width: 16px;
+  }
+
+
 }

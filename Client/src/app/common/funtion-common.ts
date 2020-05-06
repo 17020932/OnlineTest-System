@@ -2,7 +2,7 @@ import { JsonPipe } from '@angular/common';
 
 export class FunctionCommon {
     // Hàm convert dạng '[1, 2]' --> [1, 2]
-    convertJsonToArray(array: any){
+    static convertJsonToArray(array: any){
         return JSON.parse(array);
     }
 

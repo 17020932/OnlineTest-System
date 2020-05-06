@@ -5,8 +5,8 @@
       <div class="avatar">
       </div>
       <div class="ml-2">
-        <div class="text-bold">Luyện Thi Hóa Học</div>
-        <div class="small-text">100 lượt yêu thích</div>
+        <div class="text-bold">{{channel.name}}</div>
+        <div class="small-text">{{channel.amountLike}} lượt yêu thích</div>
       </div>
     </div>
     <button mat-stroked-button color="primary" style="width: 200px; height: 36px;">Like</button>
@@ -22,19 +22,6 @@
               </app-test>
             </div>
           </div>
-          <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
-          </mat-paginator>
-        </mat-tab>
-        <mat-tab label="Đề thi Offline">
-          <div class="content-tab">
-            <h4> Danh sách đề thi</h4>
-            <div class="d-flex flex-wrap mb-2">
-              <app-test (click)="goToTestById(test)" class="col-xl-4 col-md-6 col-sm-6" *ngFor="let test of listTest" [test]="test">
-              </app-test>
-            </div>
-          </div>
-          <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
-          </mat-paginator>
         </mat-tab>
         <mat-tab label="Thông tin"></mat-tab>
       </mat-tab-group>

@@ -11,6 +11,9 @@ import { ManagerRoutingModule } from './manager-routing.module';
 import { ManagerComponent } from './manager.component';
 import { ViewTestComponent } from './manager-test/bottomSheet/view-test/view-test.component';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material';
+import { ConfirmDeleteComponent } from './usecontroll/dialog/confirm-delete/confirm-delete.component';
+import { TypeImportComponent } from './manager-test/dialog/type-import/type-import.component';
+import { AddTestComponent } from './manager-test/bottomSheet/add-test/add-test.component';
 
 
 
@@ -21,7 +24,10 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material';
     ManagerBankQuestionsComponent,
     ProfileComponent,
     DashboardChannelComponent,
-    ViewTestComponent
+    ViewTestComponent,
+    ConfirmDeleteComponent,
+    TypeImportComponent,
+    AddTestComponent
   ],
   imports: [
     CustomMaterialModule,
@@ -30,7 +36,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material';
     ManagerRoutingModule,
     TemplateTableModule
   ],
-  entryComponents: [ViewTestComponent],
+  entryComponents: [ViewTestComponent, TypeImportComponent, AddTestComponent],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
   ],

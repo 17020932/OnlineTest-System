@@ -1,7 +1,8 @@
+import { TypeImportComponent } from './dialog/type-import/type-import.component';
 import { ViewTestComponent } from './bottomSheet/view-test/view-test.component';
 import { element } from 'protractor';
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource, MatBottomSheet } from '@angular/material';
+import { MatTableDataSource, MatBottomSheet, MatDialog } from '@angular/material';
 import { column } from 'src/app/models/column';
 import { EnumDataType } from 'src/app/common/enum-common';
 import { Test } from 'src/app/models/test';
@@ -80,11 +81,12 @@ export class ManagerTestComponent implements OnInit {
     }
   ];
 
-  constructor(private _bottomSheet: MatBottomSheet) { }
+  constructor(private _bottomSheet: MatBottomSheet, private _dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
+  // xem chi tiết test
   viewTest(element) {
     this._bottomSheet.open(ViewTestComponent,
       {
@@ -92,6 +94,13 @@ export class ManagerTestComponent implements OnInit {
           test: element
         }
       });
+  }
+
+  // mở form chọn kiểu nhập khẩu đề thi
+  openDialogChooseTypeImport(){
+    const dialogRef = this._dialog.open(TypeImportComponent, {
+      data: null
+    });
   }
 
 }

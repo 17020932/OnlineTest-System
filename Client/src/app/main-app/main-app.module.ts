@@ -15,6 +15,7 @@ import { HistoryTestComponent } from './history-test/history-test.component';
 import { PersonalChannelComponent } from './personal-channel/personal-channel.component';
 import { TestPageComponent } from './test-page/test-page.component';
 import { HightlightchanelComponent } from './hightlightchanel/hightlightchanel.component';
+import { ExamComponent } from './use-control/exam/exam.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { HightlightchanelComponent } from './hightlightchanel/hightlightchanel.c
     HistoryTestComponent,
     PersonalChannelComponent,
     HightlightchanelComponent,
-    TestPageComponent
+    TestPageComponent,
+    ExamComponent
   ],
   imports: [
     CustomMaterialModule,

@@ -1,0 +1,32 @@
+<div class="test-detail-content mt-4">
+    <ng-container *ngFor="let question of lstQuestions; let index = index">
+        <div class="mb-2">
+            <div class="mb-2"><b class="color-primary">Câu hỏi&nbsp;{{index + 1}}: </b></div>
+            <div class="mb-2 ml-4">{{question.name}}</div>
+            <div *ngIf="question.content" class="ml-4 mb-2">&nbsp;{{question.content}}</div>
+            <div class="ml-4">
+                <ng-container *ngIf="question.type === enumTypeQuestion.radio">
+                    <mat-radio-group>
+                        <ng-container *ngFor="let option of question.answer; let indexQuestion = index">
+                            <mat-radio-button [value]="'ques'+ question.id + indexQuestion">{{option}}
+                            </mat-radio-button>
+                            <br>
+                        </ng-container>
+                    </mat-radio-group>
+                </ng-container>
+                <ng-container *ngIf="question.type === enumTypeQuestion.checkbox">
+                    <ng-container *ngFor="let option of question.answer; let indexQuestion = index">
+                        <mat-checkbox>{{option}}
+                        </mat-checkbox><br>
+                    </ng-container>
+                </ng-container>
+                <ng-container *ngIf="question.type === enumTypeQuestion.text">
+                    <mat-form-field>
+                        <input matInput placeholder="Nhập đáp án của bạn">
+                    </mat-form-field>
+                </ng-container>
+            </div>
+        </div>
+        <mat-divider class="mb-4"></mat-divider>
+    </ng-container>
+</div>

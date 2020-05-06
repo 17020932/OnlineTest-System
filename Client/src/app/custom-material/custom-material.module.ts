@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -42,7 +43,8 @@ import {MatButtonModule, MatCheckboxModule, MatAutocompleteModule, MatButtonTogg
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    DragDropModule
   ],
   exports: [
     MatAutocompleteModule,
@@ -79,7 +81,8 @@ import {MatButtonModule, MatCheckboxModule, MatAutocompleteModule, MatButtonTogg
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    DragDropModule
   ]
 })
 

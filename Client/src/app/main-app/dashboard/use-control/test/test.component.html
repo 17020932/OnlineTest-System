@@ -2,9 +2,9 @@
     <div class="justify-content-center d-flex mb-3">
         <div class="img-test"></div>
     </div>
-    <div class="title pl-2 pr-2 mb-1" matTooltip="{{test.Name}}">{{test?.Name}}</div>
-    <div class="small-text  pl-2 pr-2 mb-1">{{test?.Title}}</div>
-    <div class="title  pl-2 pr-2 mb-1" *ngIf="test?.Passwodrs != null"></div>
-    <div class="title  pl-2 pr-2 mb-1" *ngIf="test?.Passwodrs == null">Miễn phí</div>
-    <div class="small-text  pl-2 pr-2">{{test?.createdDate }}</div>
+    <div class="title pl-2 pr-2 mb-1" matTooltip="{{test.name}}">{{test?.name}}</div>
+    <div class="small-text  pl-2 pr-2 mb-1">{{test?.title}}</div>
+    <div class="title  pl-2 pr-2 mb-1" *ngIf="test?.password != null"></div>
+    <div class="title  pl-2 pr-2 mb-1" *ngIf="test?.password == null">Miễn phí</div>
+    <div class="small-text  pl-2 pr-2"> <b>Ngày xuất bản: </b>{{test?.datePublic | date:'dd/MM/yyyy' }}</div>
 </div>

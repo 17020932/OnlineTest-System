@@ -1,0 +1,24 @@
+:host{
+    .setup-test{
+        border: 1px solid #ccc;
+        background-color: #fdf9f9;
+        border-radius: 10px;
+        padding: 8px;
+    }
+    .img-test-wrap{
+        height: 100px;
+        border: 1px dashed #ccc;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        vertical-align: middle;
+        .icon-upload{
+            transform: translate(0, 150%);
+        }
+        cursor: pointer;
+    }
+    .question-type-block{
+        border: 1px solid #eee;
+        border-radius: 10px;
+    }
+}

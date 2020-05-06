@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FakelstTitle, FakelstChannel, FakelstTest } from 'src/app/common/enum-common';
 
 @Component({
   selector: 'app-hightlightchanel',
@@ -7,158 +8,52 @@ import { Router } from '@angular/router';
   styleUrls: ['./hightlightchanel.component.scss']
 })
 export class HightlightchanelComponent implements OnInit {
-  listTitles: Array<any> = [
-    {
-      title: 'Code',
-      imageUrl: '/assets/Image/chu_de/code.svg',
-      color: '#994d4d'
-    },
-    {
-      title: 'Vật lý',
-      imageUrl: '/assets/Image/chu_de/vatly.svg',
-      color: '#2f5256'
-    },
-    {
-      title: 'Test IQ',
-      imageUrl: '/assets/Image/chu_de/testiq.svg',
-      color: '#22264b'
-    },
-    {
-      title: 'Sinh học',
-      imageUrl: '/assets/Image/chu_de/sinhhoc.svg',
-      color: '#e6cf8b'
-    },
-    {
-      title: 'Toán',
-      imageUrl: '/assets/Image/chu_de/math.svg',
-      color: '#3e4530'
-    },
-    {
-      title: 'Lịch sử',
-      imageUrl: '/assets/Image/chu_de/history.svg',
-      color: '#95c4d7'
-    },
-    {
-      title: 'địa lý',
-      imageUrl: '/assets/Image/chu_de/geo.svg',
-      color: '#bd7878'
-    },
-    {
-      title: 'Ielts',
-      imageUrl: '/assets/Image/chu_de/ielts.svg',
-      color: '#bd7878'
-    }
 
-  ];
-  listExam: Array<any> = [
-    {
-      title: 'Đề thi môn Vật lý',
-      imageUrl: '/assets/Image/chu_de/vatly.svg',
-      color: '#2f5256'
-    },
-    {
-      title: 'Đề thi Test IQ',
-      imageUrl: '/assets/Image/chu_de/testiq.svg',
-      color: '#22264b'
-    },
-    {
-      title: 'Đề thi môn Sinh học',
-      imageUrl: '/assets/Image/chu_de/sinhhoc.svg',
-      color: '#e6cf8b'
-    },
-    {
-      title: 'Đề thi môn Toán',
-      imageUrl: '/assets/Image/chu_de/math.svg',
-      color: '#3e4530'
-    },
-    {
-      title: 'Đề thi môn Lịch sử',
-      imageUrl: '/assets/Image/chu_de/history.svg',
-      color: '#95c4d7'
-    },
-    {
-      title: 'Đề thi môn địa lý',
-      imageUrl: '/assets/Image/chu_de/geo.svg',
-      color: '#bd7878'
-    },
-    {
-      title: 'Đề thi môn Ielts',
-      imageUrl: '/assets/Image/chu_de/ielts.svg',
-      color: '#bd7878'
-    }
+  // fake data
+  fakeDataChannel = FakelstChannel;
+  fakeDataTest = FakelstTest;
+  // fake data end
 
-  ];
-  date: Date = new Date();
-  listTest: Array<any> = [
-    {
-      Id: 1,
-      Name: 'Đề thi thử THPTQG hóa học năm 2020',
-      Passwodrs: null,
-      Title: 'Hóa học 24h',
-      createdDate: this.date
-    },
-    {
-      Id: 1,
-      Name: 'Đề thi thử THPTQG hóa học năm 2020',
-      Passwodrs: null,
-      Title: 'Hóa học 24h',
-      createdDate: this.date
-    },
-    {
-      Id: 1,
-      Name: 'Đề thi thử THPTQG hóa học năm 2020',
-      Passwodrs: null,
-      Title: 'Hóa học 24h',
-      createdDate: this.date
-    },
-    {
-      Id: 1,
-      Name: 'Đề thi thử THPTQG hóa học năm 2020',
-      Passwodrs: null,
-      Title: 'Hóa học 24h',
-      createdDate: this.date
-    },
-    {
-      Id: 1,
-      Name: 'Đề thi thử THPTQG hóa học năm 2020',
-      Passwodrs: null,
-      Title: 'Hóa học 24h',
-      createdDate: this.date
-    },
-    {
-      Id: 1,
-      Name: 'Đề thi thử THPTQG hóa học năm 2020',
-      Passwodrs: null,
-      Title: 'Hóa học 24h',
-      createdDate: this.date
-    },
-    {
-      Id: 1,
-      Name: 'Đề thi thử THPTQG hóa học năm 2020',
-      Passwodrs: null,
-      Title: 'Hóa học 24h',
-      createdDate: this.date
-    },
-    {
-      Id: 1,
-      Name: 'Đề thi thử THPTQG hóa học năm 2020',
-      Passwodrs: null,
-      Title: 'Hóa học 24h',
-      createdDate: this.date
-    }
+  channel: any = {};
 
-  ];
-  constructor(private route: Router) { }
+  listTitles: Array<any> = FakelstTitle;
+
+  listTest: Array<any> = [];
+
+  constructor(private route: Router, private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    const id = this.activeRoute.snapshot.paramMap.get('id');
+    this.getLstTest(id);
+    this.getChannelById(id);
   }
 
   // đi vào bài test
   goToTestById(test) {
-    debugger
-    if (test && test.Id) {
-      const url = 'main/test/' + test.Id;
+    if (test && test.id) {
+      const url = 'main/test/' + test.id;
       this.route.navigate([url]);
     }
+  }
+
+  // get lst test
+  getLstTest(id) {
+    const lstTest = this.fakeDataTest.filter(f => f.idChannel == id);
+    this.listTest = lstTest.sort((a, b) => {
+      if (a.amount < b.amount) {
+        return -1;
+        // a should come after b in the sorted order
+      } else if (a.amount > b.amount) {
+        return 1;
+        // and and b are the same
+      } else {
+        return 0;
+      }
+    });
+  }
+
+  // Lấy về test theo id
+  getChannelById(id) {
+    this.channel = this.fakeDataChannel.find(f => f.id == id);
   }
 }

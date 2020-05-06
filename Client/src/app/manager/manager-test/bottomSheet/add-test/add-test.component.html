@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <div class="top">
+
+    </div>
+    <div class="content d-flex flex-wrap">
+        <div class="col-md-4">
+            <div class="pt-2 pl-2">
+                <div class="setup-test mb-4">
+                    <div class="text-bold mb-2">Cấu hình</div>
+                    <div class="d-flex align-items-center">
+                        <div class="mb-1 mr-2">Thời gian thi:</div>
+                        <mat-form-field class="mb-2">
+                            <input matInput placeholder="nhập thời gian thi" type="number">
+                        </mat-form-field>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="mb-1 mr-3">Thiết lập password:</div>
+                        <mat-radio-group class="mb-1" [(ngModel)]="hasPassword">
+                            <mat-radio-button class="mr-4" value="1">có</mat-radio-button>
+                            <mat-radio-button value="2">Không</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div *ngIf="hasPassword == 1" class="d-flex align-items-center">
+                        <div class="mb-1 mr-2">Password:</div>
+                        <mat-form-field class="mb-2">
+                            <input matInput placeholder="nhập vào password">
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-2">
+                        <div class="mb-1">Ảnh tiêu biểu: </div>
+                        <div class="d-flex img-test-wrap w-100 justify-content-center">
+                            <mat-icon class="icon-upload">cloud_upload</mat-icon>
+                        </div>
+                        <input type="file" style="display: none;">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button mat-flat-button color="primary" class="w-100">Đăng bài viết</button>
+                    </div>
+
+                </div>
+                <div class="setup-question">
+                    <div class="text-bold mb-1">Thiết lập câu hỏi:</div>
+                    <div class="questionType">
+                        <!-- (cdkDropListDropped)="onDrop($event)"> -->
+                        <div cdkDropList #lstQuestionType="cdkDropList" [cdkDropListData]="lstQuestionType"
+                            [cdkDropListConnectedTo]="[lstQuestion]" class="movie-list"
+                            (cdkDropListDropped)="onDrop($event)">
+                            
+                            <div class="question-type-block d-flex justify-content-center p-2 mb-1" *ngFor="let item of lstQuestionType" cdkDrag>{{item}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <div class="">Tạo đề thi</div>
+            <div class="name-test"></div>
+            <div class="desc-test"></div>
+            <div class="main-content"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+:host{
+    .block{
+        border: none;
+        cursor: pointer;
+    }
+    .img-import{
+        width: 100px;
+        height: 100px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px 1px #ccc;
+        margin-bottom: 10px;
+        &:hover{
+            border: 2px solid #4a2f72;
+            transform: scale(1.005);
+        }
+        &.input{
+            background-image: url(/assets/Image/input.png);
+            background-size: contain;
+        }
+        &.excel{
+            background-image: url(/assets/Image/excel-logo.png);
+        }
+        &.mic{
+            background-image: url(/assets/Image/mic.jpg);
+        }
+        &.scan{
+            background-image: url(/assets/Image/scan.jpg);
+        }
+    }
+    .selected{
+        
+    }
+}
